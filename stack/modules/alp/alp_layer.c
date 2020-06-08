@@ -772,8 +772,8 @@ bool alp_layer_process(alp_command_t* command)
 
 void alp_layer_forwarded_command_completed(uint16_t trans_id, error_t* error, alp_interface_status_t* status, bool command_completed)
 {
-    DPRINT("alp_layer_forwarded_cmd_completed: with trans id %i and error location %i: value %i, itf_status len %i", trans_id, error, *error, status->len);
     assert(status != NULL);
+    DPRINT("alp_layer_forwarded_cmd_completed: with trans id %i and error location %i: value %i, itf_status len %i", trans_id, error, *error, status->len);
     alp_command_t* command = alp_layer_get_command_by_transid(trans_id, status->itf_id);
     assert(command != NULL);
     DPRINT("resp for tag %i\n", command->tag_id);
